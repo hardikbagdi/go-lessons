@@ -344,3 +344,25 @@ var shape Shape
 shape = Rectangle{3,4}
 shape.area() //give 12
 ```
+### Concurrency
+The coolest feature probably. Caveats?
+invoke a function like following & it will be invoked in a goroutine-a lightweight thread
+```go
+func f() {
+}
+
+go f() //invocation
+foo() //this will be executed once the go routine is started; f() will be put on a seperate thread to be executed
+```
+main() itself is an implicit goroutine
+
+### Channels
+Inter goroutine communication and synchronization
+if multiple goroutines are reading/writing from/to a channel then those read/writes will be synchronized by go
+```go
+var c  chan string - make(chan string) //a channel of string
+//this has to be passed to goroutines which will read/write from it.
+c <- "" //send to thechannel
+msg := <-c //receive from channel ; blocking call
+channel2  := make(chan string,10) //buffered async channel
+```
