@@ -207,20 +207,55 @@ map can point to a map of some other values too
 ```go
 delete(x,"hello") //doesn't return anything;will do nothing if key no present
 ```
+### Functions
+Oh yeah!
+Function call stack as in other languages
+functions can return multiple values
+Variadic functions :variable number of arguement)(varargs in Java)
+Named return values are possible too
+function can also return a function
+```go
+func <func-name>(<arg0> <type0>,<arg1> <type1> (<return-type1>,<return-type2>) {
+}
+//var args
+func <func-name>(arg0 ...int) int{ } //can be invoked using a slice too
 
+func test() (id int) {
+	id = 42
+	return //named return varaible; no need to explicitly specify vairalbe with return
+}
+```
+#### Closures
+can declare local functions inside functions which will have access to the local variables
+also possible to assign a function to a variable (some thing like a function pointer)
 
+### Defer,Panic & Recover
+Panic and recover are go's exception handling
+Defer seems something cool. Can it be dangerous?
 
+#### Defer
+Schedule a function call to run after the current function completes
+used to free up resource (files)
+keeps close near the open ; makes code less error prone
+multiple return points in a function; then works fine too
+```go 
+func foo(){
+	fmt.Println(1)
+}
+func bar(){
+	fmt.Println(2
+}
+func main(){
+	defere bar()
+	foo()
+}
+//outputs 1 and then 2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//usecase-
+f,_ := os.Open(filename)
+defer f.close()
+```
+#### Panic & Recover
+call panic() to throw an error
+recover() will recover from the panic
+TODO more details here
