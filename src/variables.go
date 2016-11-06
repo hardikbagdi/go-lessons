@@ -16,7 +16,7 @@ func main() {
 	//type inference done by go compiler
 	z := "Bye World"
 	fmt.Println(z)
-	
+
 	var (
 		n = 42
 		m = 3.14
@@ -32,7 +32,7 @@ func main() {
 	fmt.Println(m1)
 
 	var (
-		n2 string = "Ola"
+		n2 string  = "Ola"
 		m2 float32 = 1.618
 	)
 	fmt.Println(n2)

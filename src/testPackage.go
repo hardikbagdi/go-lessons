@@ -3,7 +3,7 @@ package main
 import "fmt"
 import "foobar"
 
-func main(){
+func main() {
 
-	fmt.Println(foobar.Sum(1,2,3))
+	fmt.Println(foobar.Sum(1, 2, 3))
 }

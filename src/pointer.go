@@ -2,10 +2,10 @@ package main
 
 import "fmt"
 
-func mul(x *int){
- *x = *x * *x
+func mul(x *int) {
+	*x = *x * *x
 }
-func main(){
+func main() {
 	x := new(int)
 	*x = 2
 	mul(x)

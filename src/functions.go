@@ -2,33 +2,30 @@ package main
 
 import "fmt"
 
-
 func test() (id int) {
 	id = 42
 	return
 }
 
+func foo() (int, int, int, bool) {
 
-func foo() ( int ,int, int , bool) {
-
-	return 0,-1,-2,true
+	return 0, -1, -2, true
 }
 
+func bar() func() (int, int, int, bool) {
 
-func bar () func() (int ,int ,int, bool) {
+	retfun := func() (int, int, int, bool) {
 
-retfun := func() ( int ,int, int , bool) {
-
-	return 42,-11,-22,true
+		return 42, -11, -22, true
+	}
+	return retfun
 }
-return retfun
-}
 
-func main(){
-	x:= 0
+func main() {
+	x := 0
 	//a closure
 	increment := func() int {
-		x++	
+		x++
 		return x
 	}
 	fmt.Println(increment())
