@@ -48,13 +48,13 @@ concat  can be done using + sign.
 "bool" is a type which can hold the value "false" or "true"
 
 ### Variables
-
+```go
 var <name> <type> is the way to declare a variable
-
 var <name> := <value> then type can be skipped; compiler will infer
- <name> := <value>  var is also options (: denotes initialization)
-
+<name> := <value>  var is also options (: denotes initialization)
+```
 You can declare multiple variables using following syntax; more readable in every function; multiple datatypes are allowed
+```go
 var (
 	a = 42
 	b = 3.14
@@ -63,8 +63,11 @@ var (
 	a string //can also specify data-types
 	b bool 
 )
+```
 ### Constants
+```go
 const <name>  <type> = <value> 
+```
 cannot be changed once declared
 Above multiple variable declaration can be applied to constants too
 
@@ -81,29 +84,35 @@ Lexically scoped using blocks.
 ### Control Structures
 
 #### if else
-if <condition> { //no () needed around the condition
-} else if <condition> {
+```go
+`if <condition> `{ //no () needed around the condition
+} `else if <condition> `{
 } else {
 }
+```
 
 
 #### Loop
 only one loop - for
 
 eg- 
+```go
 i := 1
 for i <= 10 { //only validation here; this is the while loop in go
 	i = i+1
 }
+```
 OR
+```go
 for i:= 1 ; i <=10 ; i++ { //normal standard for
 }
-
+```
 #### switch
 kinda cool because you don't need to write 'break';less debugging effort
-
+```go
 switch i {
 case 42:
 case 43:
 default:
 }
+```
