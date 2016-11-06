@@ -214,6 +214,7 @@ functions can return multiple values
 Variadic functions :variable number of arguement)(varargs in Java)
 Named return values are possible too
 function can also return a function
+function parameter area always pass by value;even arrays
 ```go
 func <func-name>(<arg0> <type0>,<arg1> <type1> (<return-type1>,<return-type2>) {
 }
@@ -259,3 +260,87 @@ defer f.close()
 call panic() to throw an error
 recover() will recover from the panic
 TODO more details here
+
+### Pointer
+same like c
+* and & operators
+* is used to declare a pointer and also to dereference
+& refers to the address of the following variable
+```go
+x := 4
+var ptr *int
+ptr = &x
+```
+
+#### new
+Another way to  get a pointer
+inbuilt function
+takes a type as an argument and allocates enough memory
+```go
+ptr := new(int)
+//ptr is of type *int
+```
+No Need to free up memory allocated by new.
+Go is garbage collected
+
+### Structs
+similar like c
+```go
+//define
+type Student struct {
+	id int64
+	name string
+	address string
+	//or
+	name,address string
+}
+//initialize
+var c Circle //like a pointer
+//create
+c = new(Student)
+c := new(Student) //all in one
+//to give values,like a constructor??
+c := Student{ id: 42 , name:"John Doe",address: "Mars"}
+c := Student{  42 ,"John Doe","Mars"}
+c.id //gives 42
+```
+### Methods
+Objected oriented way 
+assigning methods to structs
+put the type name between the keyword func and func-name
+```go 
+func (s *Student) getName() string {
+	return s.name
+}
+```
+Now you can call c.getName on the above student.
+
+### Embedded types
+Go's way of inheritance; is-a relation
+also known as a embedded type
+```go
+type Student struct {
+	Person //anonymous field
+	id int64
+}
+//suppose Person has a method getName(),then
+s := new(Student)
+s.Person.getName()
+//or
+s.getName() //both are valid
+```
+### Interfaces
+Like Java's interface
+you don't have to define a struct as implements;
+just implementing the methods defined in an interaface for a struct will be sufficient
+compiler somehow figures out the relation
+interfaces can also be used as variables as well as fields in other structs
+```go
+type Shape interface {
+	area() float64
+} 
+//if circle and rectangle define this method then
+var shape Shape
+shape = Rectangle{3,4}
+shape.area() //give 12
+```
