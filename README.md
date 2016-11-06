@@ -10,7 +10,8 @@ import is similar to #include
 main() is like the all universal main()
 
 Exported functions have the first letter Capitalized (Println)
-
+fmt.Println() or fmt.Printf() can be used for prints for stdout
+fmt.Scanf() (same/similar as c) for reading input from stdin
 ### Types
 
 #### Integers
@@ -51,7 +52,7 @@ concat  can be done using + sign.
 var <name> <type> is the way to declare a variable
 
 var <name> := <value> then type can be skipped; compiler will infer
- <name> := <value>  var is also options (:= improves code readability, denotes initialization)
+ <name> := <value>  var is also options (: denotes initialization)
 
 You can declare multiple variables using following syntax; more readable in every function; multiple datatypes are allowed
 var (
@@ -63,15 +64,46 @@ var (
 	b bool 
 )
 ### Constants
-const <name>  <type> = <value>
+const <name>  <type> = <value> 
 cannot be changed once declared
+Above multiple variable declaration can be applied to constants too
 
 ### Arithematic
 Normal operations + - * / %
 Shorthand operators available += and others
+++ -- standard increment and decrement operators
 
 ### Scoping
 Global definitions accessible to all functions in the file
 Normal function closures exist
 Lexically scoped using blocks.
 
+### Control Structures
+
+#### if else
+if <condition> { //no () needed around the condition
+} else if <condition> {
+} else {
+}
+
+
+#### Loop
+only one loop - for
+
+eg- 
+i := 1
+for i <= 10 { //only validation here; this is the while loop in go
+	i = i+1
+}
+OR
+for i:= 1 ; i <=10 ; i++ { //normal standard for
+}
+
+#### switch
+kinda cool because you don't need to write 'break';less debugging effort
+
+switch i {
+case 42:
+case 43:
+default:
+}
