@@ -2,6 +2,7 @@
 Trying out Golang
 
 ## Notes
+Book being referred: An Introduction to Programming in Go by Caleb Doxsey
 
 ### Introduction 
 import is similar to #include
@@ -37,6 +38,7 @@ a simple char in a string "Hello World" is represented as a byte i.e. ASCII
 len() - length of string
 zero indexed
 concat  can be done using + sign.
+== can be used to compare two strings(values)
 
 #### Booleans
 && and
@@ -44,4 +46,32 @@ concat  can be done using + sign.
 ! not
 "bool" is a type which can hold the value "false" or "true"
 
+### Variables
+
+var <name> <type> is the way to declare a variable
+
+var <name> := <value> then type can be skipped; compiler will infer
+ <name> := <value>  var is also options (:= improves code readability, denotes initialization)
+
+You can declare multiple variables using following syntax; more readable in every function; multiple datatypes are allowed
+var (
+	a = 42
+	b = 3.14
+)
+var (
+	a string //can also specify data-types
+	b bool 
+)
+### Constants
+const <name>  <type> = <value>
+cannot be changed once declared
+
+### Arithematic
+Normal operations + - * / %
+Shorthand operators available += and others
+
+### Scoping
+Global definitions accessible to all functions in the file
+Normal function closures exist
+Lexically scoped using blocks.
 
