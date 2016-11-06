@@ -127,7 +127,7 @@ x := [3]int{ 1,2,3}
 ```
 Arrays are zero-indexed
 len(array) will give you the length of the array
-
+`Arrays are pass by value`
 #### Iterating over Arrays
 A special for loop exists for iterating over arrays
 ```go
@@ -146,10 +146,81 @@ for i,_ := range <array> {
 ```
 ### Slices
 Like arrays but allows variable length
+Slices are backed by array of a fixed length.
+The length of the slice can grow upto the size(called capacity) of the backing array
+Most go libraries use slice rather than array
+slice is pass by reference
+```go 
+var x []float64 //reference to a slice;needs to be instantiated/initialized
+x:= make([]float64, 5 ,10)
+len(x) //gives 5
+cap(x) //gives 10
+
+//more ways to intialize a size from an existing slice/array
+slice := []int{11,22,32,42,546,2}
+x := [low:high] //both can be skipped; low is start index(inclusive); high is last index(exclusive)
+x := slice[:] //x has the entire array; same as [0:],[:],[0:len(slice)]
+y := slice[0:2] //only first two elements
+z := slice[ 2:] // array of all elements from index 2 till end
+```
+cap(array) will always be == len(array)
+Refer https://blog.golang.org/slices for a better understanding
+
+#### Slice in-built functions
+two inbuilt functions - append and copy
+
+```go 
+//appendd
+slice1 := []int{1,2,3}
+slice2 := append(slice1,4,5) //kind of var args in Java
+//notice how append returns a new slice; the backing array is different now
+fmt.Println(slice1,slice2) //1,2,3,4,5
+//copy
+slice1 := []int{1,2,3}
+slice2 := make([]int,2)
+copy(slice2,slice1) //only first two elements will be copied
+//copy returns the number of elements copied
+```
+TODO read more about slices
+
+### Maps
+Like dictionaries; 
+Slices and maps are quite magical; not sure if user defined can be developed with similar style
+```go
+var x map[string]int //just a reference;needs instantiation/initialization
+x := make(map[string]int)
+x["hello"] = 42
+len(x) // gives the number of mapings present in the map
+//retrieve
+i , ok := x["hello"] // both can be don't cares (_) //ok is boolean 
+
+//init multiple:
+test := map[string]int{
+	"a" : 121,
+	"b" : 23, //notice the ,
+}
+map can point to a map of some other values too
+```
+
+#### Slice in-built functions
+
+```go
+delete(x,"hello") //doesn't return anything;will do nothing if key no present
+```
 
 
 
 
-Refer https://blog.golang.org/slices
+
+
+
+
+
+
+
+
+
+
+
 
 
