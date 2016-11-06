@@ -85,8 +85,8 @@ Lexically scoped using blocks.
 
 #### if else
 ```go
-`if <condition> `{ //no () needed around the condition
-} `else if <condition> `{
+if <condition> { //no () needed around the condition
+} else if <condition> {
 } else {
 }
 ```
@@ -116,3 +116,40 @@ case 43:
 default:
 }
 ```
+
+### Arrays
+
+```go
+var <name> [<size>]<type>
+var x [4]int
+x := [3]int{ 1,2,3}
+
+```
+Arrays are zero-indexed
+len(array) will give you the length of the array
+
+#### Iterating over Arrays
+A special for loop exists for iterating over arrays
+```go
+for i,value := range <array> {
+	//i is the current position
+	//value is array[i]	
+}
+```
+go compiler will not allow you to declare and not user these variables;
+you can skip them by using the follow form
+```go
+for _,value := range <array> {
+}
+for i,_ := range <array> {
+}
+```
+### Slices
+Like arrays but allows variable length
+
+
+
+
+Refer https://blog.golang.org/slices
+
+
